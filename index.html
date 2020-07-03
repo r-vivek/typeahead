@@ -12,8 +12,12 @@
 <body>
    <div  ng-controller="TypeAheadController">
 	<h1>TypeAhead Using AngularJS</h1>
-	<typeahead class="pac-container" items="items" prompt="Start typing a US state" title="name" subtitle="abbreviation" model="name" on-select="onItemSelected()" />
-   </div>
+	<typeahead style="margin-left: 500px;" class="pac-container" items="items" prompt="Start typing a US state" title="name" subtitle="abbreviation" model="name" on-select="onItemSelected()" />
    
+   <span>{{model}}</span> <br/>
+    
+
+</div>
+
 </body>
 </html>

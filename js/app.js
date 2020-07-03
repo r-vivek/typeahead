@@ -7,6 +7,12 @@ typeAhead.controller('TypeAheadController', function ($scope, dataFactory) {
 	$scope.name = "";
 	// Service 
 	$scope.onItemSelected = function () {
+		$scope.label = $scope.name;
+		console.log('selected=' + $scope.name);
+	}
+
+	$scope.fetchGoogle = function () {
+		$scope.label = $scope.name;
 		console.log('selected=' + $scope.name);
 	}
 });
@@ -32,6 +38,7 @@ typeAhead.directive('typeahead', function ($timeout) {
 				}, 200);
 			};
 			scope.computeCssClass = function (data) {
+				// return true;
 				if (data) {
 					return ("pac-logo");
 				}
@@ -47,6 +54,12 @@ typeAhead.directive('typeahead', function ($timeout) {
 			scope.setCurrent = function (index) {
 				scope.current = index;
 			};
+			scope.fetchGoogle = function (input) {
+				scope.label = input;
+				console.log('selected=' + input);
+				// make the service call based on input and get results from places prediction and assign those directly
+				// scope.items.push({name: input, abbreviation: input});
+			}
 		},
 		templateUrl: 'templates/templateurl.html'
 	}
